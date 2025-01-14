@@ -11,10 +11,10 @@ const genAI = async (req, res) => {
     const history = await History.create({
       request: prompt,
     });
-    if (!prompt || typeof prompt !== "string") {
+    if (!prompt || typeof(prompt) !== "string") {
       return res
         .status(400)
-        .json({ error: "'request' must be a non-empty string." });
+        .json({ error: "Enter your Query First." });
     }
 
     const result = await model.generateContent(prompt);
