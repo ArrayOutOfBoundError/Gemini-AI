@@ -11,21 +11,28 @@ const genAI = async (req, res) => {
     const history = await History.create({
       request: prompt,
     });
-    if (!prompt || typeof(prompt) !== "string") {
-      return res
-        .status(400)
-        .json({ error: "Enter your Query First." });
+    if (!prompt || typeof prompt !== "string") {
+      return res.status(400).json({ error: "Enter your Query First." });
     }
 
     const result = await model.generateContent(prompt);
-    const responseText = result.response.text();
+    let responseText = result.response.text();
+
+    const words = responseText.split(" ").slice(0, 200).join(" ");
+
+    responseText = words.trim();
+
     console.log("Generated content:", responseText);
 
+    if (!responseText) {
+      responseText = "Sorry, no content returned.";
+    }
+    
     res.status(200).json({ content: responseText });
-    console.log("Response sent successfully");
 
     history.response = responseText;
     await history.save();
+
   } catch (error) {
     console.error("Error in genAI:", error);
     res.status(500).json({ error: "Internal Server Error" });
