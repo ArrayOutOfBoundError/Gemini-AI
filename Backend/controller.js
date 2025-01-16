@@ -18,16 +18,15 @@ const genAI = async (req, res) => {
     const result = await model.generateContent(prompt);
     let responseText = result.response.text();
 
-    const words = responseText.split(" ").slice(0, 200).join(" ");
-
-    responseText = words.trim();
+    if (!responseText) {
+      responseText = "Sorry, no content returned.";
+    } else {
+      const words = responseText.split(" ").slice(0, 200).join(" ");
+      responseText = words.trim();
+    }
 
     console.log("Generated content:", responseText);
 
-    if (!responseText) {
-      responseText = "Sorry, no content returned.";
-    }
-    
     res.status(200).json({ content: responseText });
 
     history.response = responseText;
