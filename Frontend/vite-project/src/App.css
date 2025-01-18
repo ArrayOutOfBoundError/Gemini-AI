@@ -43,7 +43,7 @@ input {
   padding: 15px;
   margin: 20px 0;
   font-size: 18px;
-  color: #e0e0e0; /* Lighter text color */
+  color: #e0e0e0;
   width: 300px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -84,19 +84,55 @@ button:hover {
 .response {
   font-size: 20px;
   margin-top: 25px;
-  color:rgb(17, 9, 9); /* Lighter text color for better readability */
+  color: #2d3e50;
   font-weight: bold;
-  text-shadow: 0 0 5px rgba(166, 214, 214, 0.7);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.5);
   white-space: pre-wrap;
-  border-left: 4px solidrgb(12, 202, 255);
-  padding-left: 15px;
+  border-left: 6px solid #00d2ff;
+  padding-left: 20px;
   max-height: 60vh;
   overflow-y: auto;
+  background: #f4f4f9;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.response:hover {
+  border-left: 6px solid #ff6f61;
+  background: #e0f7fa;
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.response {
+  animation: fadeIn 1s ease-out;
+}
+
+.microphone {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #444;
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 2px solid #0077ff;
+  text-align: center;
+  transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.microphone:hover {
+  color: #ffffff;
+  background-color: #0077ff;
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 4px 10px rgba(0, 119, 255, 0.5);
 }

@@ -11,7 +11,7 @@ const genAI = async (req, res) => {
     const history = await History.create({
       request: prompt,
     });
-    if (!prompt || typeof prompt !== "string") {
+    if (!prompt) {
       return res.status(400).json({ error: "Enter your Query First." });
     }
 
@@ -21,8 +21,8 @@ const genAI = async (req, res) => {
     if (!responseText) {
       responseText = "Sorry, no content returned.";
     } else {
-      const words = responseText.split(" ").slice(0, 200).join(" ");
-      responseText = words.trim();
+      const words = responseText.replace(/\*/g, "");
+      responseText = words;
     }
 
     console.log("Generated content:", responseText);
