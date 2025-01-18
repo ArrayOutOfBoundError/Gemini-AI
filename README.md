@@ -89,7 +89,18 @@ Ensure you have the following installed:
   }
   ```
 
+## Speech Recognition
+```
+The frontend includes speech recognition functionality to capture user input via voice.
+
+How it works:
+A user can click the microphone icon to activate speech recognition.
+The system listens for the user's speech and converts it into text.
+The converted text is then used as a user prompt to interact with the backend.
+This functionality is integrated using the webkitSpeechRecognition API in the frontend, enabling voice input for user requests.
+
 ## Project Structure
+```
 
 ```
 Gemini-AI
