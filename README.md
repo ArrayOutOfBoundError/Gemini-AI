@@ -122,14 +122,12 @@ Gemini-AI
 │       ├── node_modules    # Node.js modules for the frontend
 │       ├── public          # Static assets for the frontend
 │       ├── src             # Source files (React components, logic)
-│       ├── .env            # Environment variables for the frontend
 │       ├── .gitignore      # Git ignored files for the frontend
 │       ├── eslint.config.js# ESLint configuration for linting
 │       ├── index.html      # HTML template
 │       ├── vite.config.js  # Vite configuration
 │       ├── package-lock.json # Lock file for frontend dependencies
 │       └── package.json    # Frontend dependencies
-├── .env                    # Global environment variables
 ├── .gitignore              # Global Git ignored files
 └── README.md               # Project documentation
 
