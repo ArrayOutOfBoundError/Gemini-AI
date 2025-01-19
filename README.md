@@ -1,3 +1,4 @@
+
 # Gemini Clone Project
 
 This project is a simple clone of Gemini, built using the following technologies:
@@ -12,6 +13,7 @@ This project is a simple clone of Gemini, built using the following technologies
 - Backend server to process requests and interact with the database.
 - Frontend interface to interact with the application.
 - MongoDB as the database to store user data and responses.
+- **Speech Recognition**: Integrated speech recognition functionality to capture user prompts through voice.
 
 ## Prerequisites
 
@@ -90,17 +92,18 @@ Ensure you have the following installed:
   ```
 
 ## Speech Recognition
-```
+
 The frontend includes speech recognition functionality to capture user input via voice.
 
-How it works:
-A user can click the microphone icon to activate speech recognition.
-The system listens for the user's speech and converts it into text.
-The converted text is then used as a user prompt to interact with the backend.
-This functionality is integrated using the webkitSpeechRecognition API in the frontend, enabling voice input for user requests.
+### How it works:
+
+1. A user can click the **microphone icon** to activate speech recognition.
+2. The system listens for the user's speech and converts it into text.
+3. The converted text is then used as a user prompt to interact with the backend.
+
+This functionality is integrated using the `webkitSpeechRecognition` API in the frontend, enabling voice input for user requests.
 
 ## Project Structure
-```
 
 ```
 Gemini-AI
@@ -119,14 +122,12 @@ Gemini-AI
 │       ├── node_modules    # Node.js modules for the frontend
 │       ├── public          # Static assets for the frontend
 │       ├── src             # Source files (React components, logic)
-│       ├── .env            # Environment variables for the frontend
 │       ├── .gitignore      # Git ignored files for the frontend
 │       ├── eslint.config.js# ESLint configuration for linting
 │       ├── index.html      # HTML template
 │       ├── vite.config.js  # Vite configuration
 │       ├── package-lock.json # Lock file for frontend dependencies
 │       └── package.json    # Frontend dependencies
-├── .env                    # Global environment variables
 ├── .gitignore              # Global Git ignored files
 └── README.md               # Project documentation
 
