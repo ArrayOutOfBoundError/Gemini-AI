@@ -4,9 +4,8 @@ import * as fs from "node:fs";
 
 const genAI = async (req, res) => {
   try {
-    console.log("Received request:", req.body);
-    console.log("Received file:", req.file);
-
+    console.log("request prompt: ",req.body);
+    console.log("request file: ",req.file);
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
@@ -27,25 +26,34 @@ const genAI = async (req, res) => {
     }
 
     const history = await History.create({ request: prompt });
-
     const imagePart = file
       ? fileToGenerativePart(file.path, file.mimetype)
       : undefined;
-
-    const result = await model.generateContent([prompt, imagePart]);
-
-    let responseText = result.response.text();
-    if (!responseText) {
-      responseText = "Sorry, no content returned.";
+    if (!file) {
+      const result = await model.generateContent(prompt);
+      let responseText = result.response.text();
+      if (!responseText) {
+        responseText = "Sorry, no content returned.";
+      } else {
+        responseText = responseText.replace(/\*/g, "");
+      }
+      console.log("Generated content:", responseText);
+      history.response = responseText;
+      await history.save();
+      res.status(200).json({ content: responseText });
     } else {
-      responseText = responseText.replace(/\*/g, "");
+      const result2 = await model.generateContent([prompt, imagePart]);
+      let responseText2 = result2.response.text();
+      if (!responseText2) {
+        responseText2 = "Sorry, no content returned.";
+      } else {
+        responseText2 = responseText2.replace(/\*/g, "");
+      }
+      console.log("Generated content:", responseText2);
+      history.response = responseText2;
+      await history.save();
+      res.status(200).json({ content: responseText2 });
     }
-
-    console.log("Generated content:", responseText);
-    history.response = responseText;
-    await history.save();
-
-    res.status(200).json({ content: responseText });
   } catch (error) {
     console.error("Error in genAI:", error);
     res.status(500).json({ error: "Internal Server Error" });

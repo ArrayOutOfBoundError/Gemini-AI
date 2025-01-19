@@ -1,7 +1,6 @@
 import express from "express";
 import requestRouter from "./requestRouter.js";
 import cors from "cors";
-import multer from "multer";
 const app = express();
 app.use(
   cors({
