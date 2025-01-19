@@ -134,3 +134,12 @@ button:hover {
   transform: scale(1.1) rotate(5deg);
   box-shadow: 0 4px 10px rgba(0, 119, 255, 0.5);
 }
+.file-icon {
+  font-size: 1.8rem;
+  color: blue;
+  padding: 5px;
+  border: 2px dashed blue;
+  border-radius: 40%;
+  cursor: pointer;
+  margin: 10px;
+}
