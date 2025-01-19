@@ -58,7 +58,7 @@ Ensure you have the following installed:
 1. **Start the Backend Server**:
    ```bash
    cd Backend
-   npm run start
+   npm run dev
    ```
 
 2. **Start the Frontend**:

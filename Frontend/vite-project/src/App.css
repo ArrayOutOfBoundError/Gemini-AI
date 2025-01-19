@@ -22,10 +22,8 @@ body {
 }
 
 .App-header {
-  background: linear-gradient(135deg, #1f4037, #99f2c8);
   border-radius: 20px;
   padding: 40px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   height: 100%;
   width: 100%;
   display: flex;
