@@ -79,9 +79,6 @@ web_modules/
 # dotenv environment variable files
 
 **/.env
-!Frontend/vite-project/.env
-!Backend/uploads/
-!Backend/node_modules/
 .env
 .env.development.local
 .env.test.local
