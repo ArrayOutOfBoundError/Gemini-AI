@@ -27,7 +27,7 @@ Ensure you have the following installed:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/RohitBCA456/Gemini-AI
+   git clone https://github.com/ArrayOutOfBoundError/Gemini-AI
    cd Gemini-AI
    ```
 
